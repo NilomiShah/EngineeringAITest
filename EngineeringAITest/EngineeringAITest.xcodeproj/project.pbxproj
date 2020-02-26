@@ -18,6 +18,7 @@
 		69AC813C240675E500EC7765 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AC813A240675E500EC7765 /* PostTableViewCell.xib */; };
 		69AC813E2406785700EC7765 /* HitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC813D2406785700EC7765 /* HitsModel.swift */; };
 		69AC814224067BDF00EC7765 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC814124067BDF00EC7765 /* UIViewControllerExtensions.swift */; };
+		69AC8144240682AC00EC7765 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC8143240682AC00EC7765 /* Utility.swift */; };
 		AE8F9589CA4847621D92FAAD /* Pods_EngineeringAITest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A90BD03524F5926B3A03334 /* Pods_EngineeringAITest.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		69AC813A240675E500EC7765 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		69AC813D2406785700EC7765 /* HitsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitsModel.swift; sourceTree = "<group>"; };
 		69AC814124067BDF00EC7765 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		69AC8143240682AC00EC7765 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		7A90BD03524F5926B3A03334 /* Pods_EngineeringAITest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngineeringAITest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				69AC814124067BDF00EC7765 /* UIViewControllerExtensions.swift */,
+				69AC8143240682AC00EC7765 /* Utility.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				69AC81372406701500EC7765 /* APIRouter.swift in Sources */,
 				69AC813B240675E500EC7765 /* PostTableViewCell.swift in Sources */,
 				69AC812024066E2100EC7765 /* ListViewController.swift in Sources */,
+				69AC8144240682AC00EC7765 /* Utility.swift in Sources */,
 				69AC811E24066E2100EC7765 /* AppDelegate.swift in Sources */,
 				69AC813E2406785700EC7765 /* HitsModel.swift in Sources */,
 				69AC814224067BDF00EC7765 /* UIViewControllerExtensions.swift in Sources */,

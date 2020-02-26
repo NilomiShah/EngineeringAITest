@@ -45,6 +45,7 @@ final class ListViewController: UIViewController {
         callListApi(isShowLoader: true)
     }
     
+    //MARK: Refresh
     @objc func handleRefresh() {
         self.currentPageNumber = 0
         self.callListApi(isShowLoader: false)
@@ -150,7 +151,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return UITableView.automaticDimension
         default:
-            return (isLoadMore) ? 50 : 0
+            return (self.isLoadMore) ? 50 : 0
+            
         }
     }
+    
 }

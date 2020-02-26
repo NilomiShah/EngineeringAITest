@@ -19,7 +19,7 @@ class PostTableViewCell: UITableViewCell {
         didSet {
             if let hit = hit {
                 self.labelTitle.text = hit.title ?? ""
-                self.labelDate.text = hit.created_at ?? ""
+                self.labelDate.text = Utility.formatedDate(date: hit.created_at ?? "")
                 self.switchToggle.isOn = hit.isSelected
             }
         }
