@@ -46,7 +46,9 @@ final class ListViewController: UIViewController {
     }
     
     @objc func handleRefresh() {
-        
+        self.currentPageNumber = 0
+        self.callListApi(isShowLoader: false)
+        self.refreshControl.endRefreshing()
     }
     
     //MARK: Set Table Header
@@ -91,3 +93,64 @@ final class ListViewController: UIViewController {
     }
 }
 
+//MARK: TableView Delegate and DataSource
+
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return arrHits.count
+        default:
+            return isLoadMore ? 1 : 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableViewCell.self), for: indexPath) as? PostTableViewCell ?? PostTableViewCell()
+            cell.hit = arrHits[indexPath.row]
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "acitivityLoaderCell", for: indexPath) as? PostTableViewCell ?? PostTableViewCell()
+            cell.activityIndicator.startAnimating()
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if ((indexPath.row == self.arrHits.count - 1) && self.isLoadMore && refreshControl.isRefreshing == false && indexPath.section == 0)  {
+            self.currentPageNumber += 1
+            if self.currentPageNumber < self.totalPage {
+                self.callListApi(isShowLoader: false)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            arrHits[indexPath.row].isSelected = !arrHits[indexPath.row].isSelected
+            if let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell {
+                cell.switchToggle.isOn = arrHits[indexPath.row].isSelected
+            }
+            self.setTitle()
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return UITableView.automaticDimension
+        default:
+            return (isLoadMore) ? 50 : 0
+        }
+    }
+}

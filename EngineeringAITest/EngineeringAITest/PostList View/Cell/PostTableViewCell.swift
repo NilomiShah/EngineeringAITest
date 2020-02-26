@@ -10,6 +10,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var switchToggle: UISwitch!
