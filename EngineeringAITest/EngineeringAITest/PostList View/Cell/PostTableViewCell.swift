@@ -10,11 +10,11 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet private weak var labelTitle: UILabel!
+    @IBOutlet private weak var labelDate: UILabel!
     @IBOutlet weak var switchToggle: UISwitch!
- 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var hit: Hits? {
         didSet {
             if let hit = hit {

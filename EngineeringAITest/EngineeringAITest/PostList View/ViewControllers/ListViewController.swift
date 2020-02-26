@@ -12,7 +12,7 @@ import Alamofire
 final class ListViewController: UIViewController {
     
     //MARK: Outlets
-    @IBOutlet weak var tableViewList: UITableView!
+    @IBOutlet private weak var tableViewList: UITableView!
     
     //MARK: Variables
     private var arrHits: [Hits] = []
@@ -26,7 +26,7 @@ final class ListViewController: UIViewController {
         refreshControl.tintColor = UIColor.gray
         return refreshControl
     }()
-
+    
     //MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +95,6 @@ final class ListViewController: UIViewController {
 }
 
 //MARK: TableView Delegate and DataSource
-
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,8 +151,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableView.automaticDimension
         default:
             return (self.isLoadMore) ? 50 : 0
-            
         }
     }
-    
 }
